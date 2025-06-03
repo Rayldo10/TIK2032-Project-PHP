@@ -1,0 +1,422 @@
+/* Reset and base styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #0A1921; /* Dark navy background matching screenshot */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Navigation styling */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #004a94; /* Blue nav bar matching screenshot */
+    padding: 15px 0;
+    text-align: center;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #FFD700;
+}
+
+/* Common container styles - TRUE FULL PAGE */
+.container {
+    display: none; /* Hide by default, shown via JS */
+    min-height: 100vh; /* Full viewport height */
+    width: 100vw; /* Full viewport width */
+    background: #0A1921; /* Dark navy background */
+    color: white;
+    padding: 60px 20px 0; /* Top padding for nav, no bottom padding */
+    margin: 0;
+    box-sizing: border-box;
+    position: absolute; /* Position absolutely to cover full page */
+    top: 0;
+    left: 0;
+}
+
+/* Home page styling */
+.home-container {
+    display: flex; /* Will be overridden by JS when needed */
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 40px;
+    padding-top: 120px; /* More space at top */
+}
+
+.home-container h1 {
+    font-size: 42px;
+    color: #0275d8; /* Blue color from screenshot */
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    background-color: #0275d8;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.cta-button:hover {
+    background-color: #003366;
+}
+
+/* Gallery page - ensure full width */
+#gallery {
+    text-align: center;
+    min-height: calc(100vh - 60px);
+    padding: 30px;
+    margin: 0;
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 35%, #2c5364 100%);
+}
+
+#gallery h1 {
+    color: #FFD700;
+    margin-bottom: 30px;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.gallery img {
+    max-width: 300px;
+    border-radius: 5px;
+    transition: transform 0.3s;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.gallery img:hover {
+    transform: scale(1.03);
+}
+
+/* Blog page - ensure full width */
+#blog {
+    min-height: calc(100vh - 60px);
+    padding: 30px;
+    margin: 0;
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 35%, #2c5364 100%);
+}
+
+#blog h1 {
+    color: #FFD700;
+    margin-bottom: 25px;
+}
+
+.add-article-button {
+    background-color: #004a94;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.add-article-button:hover {
+    background-color: #003366;
+}
+
+.article {
+    margin-bottom: 30px;
+    padding: 25px;
+    background: white; /* White background */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    color: #333; /* Dark text color for visibility */
+}
+
+.article:hover {
+    transform: translateY(-5px);
+}
+
+.article h2 {
+    color: #004a94; /* Navy blue heading */
+    margin-top: 0;
+    font-weight: bold;
+}
+
+.article-date {
+    color: #666; /* Gray date text */
+    font-size: 0.9em;
+    margin-bottom: 15px;
+}
+
+.article-content {
+    line-height: 1.6;
+    color: #333; /* Dark content text */
+}
+
+.article-controls button {
+    background-color: #004a94;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.article-controls button:hover {
+    background-color: #003366;
+}
+
+/* Add Article Form - ensure full width & same background */
+#add-article {
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 30px;
+    box-sizing: border-box;
+    min-height: calc(100vh - 60px);
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 35%, #2c5364 100%);
+}
+
+#add-article h1 {
+    color: #FFD700;
+    margin-bottom: 30px;
+    font-size: 32px;
+}
+
+#add-article form {
+    display: flex;
+    flex-direction: column;
+}
+
+#add-article input[type="text"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#add-article textarea {
+    height: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+    margin-bottom: 20px;
+}
+
+#add-article button[type="submit"] {
+    background-color: #004a94;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    width: fit-content;
+}
+
+#add-article button[type="button"] {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: fit-content;
+}
+
+/* Edit Article Form - ensure full width & same background */
+#edit-article {
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 30px;
+    box-sizing: border-box;
+    min-height: calc(100vh - 60px);
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 35%, #2c5364 100%);
+}
+
+#edit-article h1 {
+    color: #FFD700;
+    margin-bottom: 30px;
+    font-size: 32px;
+}
+
+#edit-article form {
+    display: flex;
+    flex-direction: column;
+}
+
+#edit-article input[type="text"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#edit-article textarea {
+    height: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+    margin-bottom: 20px;
+}
+
+#edit-article button[type="submit"] {
+    background-color: #004a94;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    width: fit-content;
+}
+
+#edit-article button[type="button"] {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: fit-content;
+}
+
+/* Contact page - ensure full width & same background */
+#contact {
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 30px;
+    box-sizing: border-box;
+    min-height: calc(100vh - 60px);
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 35%, #2c5364 100%);
+}
+
+#contact h1 {
+    color: #FFD700;
+    margin-bottom: 30px;
+}
+
+.contact-info {
+    margin-bottom: 30px;
+}
+
+.contact-info p {
+    margin: 10px 0;
+}
+
+.contact-info strong {
+    color: #004a94;
+    margin-right: 5px;
+}
+
+#contactForm {
+    width: 100%;
+    padding: 0;
+}
+
+#contactForm input,
+#contactForm textarea {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#contactForm textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+#contactForm button {
+    background-color: #004a94;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Back to top button */
+#backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    background: #004a94;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Lightbox styling */
+.lightbox {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    display: none; /* Hide by default */
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Remove any bottom margins that could cause gaps */
+.gallery, .article, #contactForm, #add-article form, #edit-article form {
+    margin-bottom: 0;
+}
